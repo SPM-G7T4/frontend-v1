@@ -1,5 +1,7 @@
 import React from "react";
 
+import { NavLink } from "react-router-dom";
+
 import styles from "./Sidebar.module.scss";
 
 import logo from "../../assets/logo.png";
@@ -16,8 +18,10 @@ const Sidebar = () => {
           {SidebarTabs.map((value, key) => {
             return (
               <li key={key}>
-                {value.icon}
-                <span className={styles.title}>{value.title}</span>
+                <NavLink exact activeClassName={styles.active} to={value.link}>
+                  {value.icon}
+                  <span className={styles.title}>{value.title}</span>
+                </NavLink>
               </li>
             );
           })}

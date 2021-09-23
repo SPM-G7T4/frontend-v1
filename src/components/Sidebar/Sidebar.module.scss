@@ -1,5 +1,6 @@
 .sidebar {
   background-color: var(--neutral);
+  position: fixed;
   width: 12.5rem;
   height: 100vh;
   border-radius: 0 15px 15px 0;
@@ -19,6 +20,10 @@ ul {
   color: var(--purple);
   list-style: none;
   width: 100%;
+
+  .active {
+    color: var(--black);
+  }
 }
 
 li {
@@ -26,6 +31,7 @@ li {
   padding: 1rem;
   display: flex;
   align-items: center;
+  cursor: pointer;
 
   .title {
     padding-left: 1rem;
@@ -36,5 +42,10 @@ li {
     color: white;
     transition: 0.1s ease-in-out;
   }
-
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+

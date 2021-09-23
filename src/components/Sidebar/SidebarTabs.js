@@ -6,21 +6,26 @@ export const SidebarTabs = [
   {
     title: "Home",
     icon: <AiTwotoneHome size={25} />,
+    link: "/",
   },
   {
     title: "Courses",
     icon: <IoSchoolSharp size={25} />,
+    link: "/courses",
   },
   {
     title: "Schedule",
     icon: <AiFillSchedule size={25} />,
+    link: "/schedule",
   },
   {
     title: "Messages",
     icon: <AiFillMessage size={25} />,
+    link: "/messages",
   },
   {
     title: "Badge",
     icon: <FaAward size={25} />,
+    link: "/badges",
   },
 ];
