@@ -34,6 +34,7 @@ li {
   &:hover {
     background-color: var(--purple);
     color: white;
+    transition: 0.1s ease-in-out;
   }
 
 }
