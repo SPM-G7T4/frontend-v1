@@ -1,0 +1,51 @@
+.sidebar {
+  background-color: var(--neutral);
+  position: fixed;
+  width: 12.5rem;
+  height: 100vh;
+  border-radius: 0 15px 15px 0;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.image {
+  width: 8.5rem;
+  height: 100%;
+}
+
+ul {
+  color: var(--purple);
+  list-style: none;
+  width: 100%;
+
+  .active {
+    color: var(--black);
+  }
+}
+
+li {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  .title {
+    padding-left: 1rem;
+  }
+
+  &:hover {
+    background-color: var(--purple);
+    color: white;
+    transition: 0.1s ease-in-out;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
