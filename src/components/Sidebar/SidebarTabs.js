@@ -24,7 +24,7 @@ export const SidebarTabs = [
     link: "/messages",
   },
   {
-    title: "Badge",
+    title: "Badges",
     icon: <FaAward size={25} />,
     link: "/badges",
   },
