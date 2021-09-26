@@ -6,20 +6,20 @@ import styles from "./Sidebar.module.scss";
 
 import logo from "../../assets/logo.png";
 import { SidebarTabs } from "./SidebarTabs";
+import Image from 'react-bootstrap/Image'
 
 const Sidebar = () => {
   return (
     <>
       <div className={styles.sidebar}>
         <div>
-          <img src={logo} alt="Logo" className={styles.image} />
+          <Image src={logo} alt="Logo" className={styles.image} fluid/>
         </div>
         <ul>
           {SidebarTabs.map((value, key) => {
             return (
               <li key={key}>
                 <NavLink exact activeClassName={styles.active} to={value.link}>
-                  {value.icon}
                   <span className={styles.title}>{value.title}</span>
                 </NavLink>
               </li>
