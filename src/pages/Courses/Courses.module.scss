@@ -1,0 +1,60 @@
+.courses{
+  padding: 60px 0;
+  padding-left: 250px;
+  padding-right: 90px;
+  max-width: 1300px;
+
+  .list-title{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 2rem 0;
+  }
+
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .listing{
+    transform: translateY(-20px);
+
+    &-item{
+      background: none;
+      transition: box-shadow 0.5s;
+      padding: 1rem;
+
+      &:hover{
+        background: white;
+        box-shadow: 0 8px 24px 0 rgb(54 97 174 / 14%);
+      }
+
+      .title{
+        color: var(--purple);
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .subtitle{
+        span{
+          &:after{
+            content: '|';
+            margin: 0 5px;
+            color: var(--grey);
+          }
+          
+          &:last-child{
+            &:after{
+              display: none;
+            }
+          }
+        }
+      }
+
+      .desc{
+        color: var(--grey);
+        padding: 0.5em 0;
+      }
+    }
+  }
+}

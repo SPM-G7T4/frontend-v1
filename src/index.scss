@@ -4,6 +4,7 @@
   --black: #09090C;
   --white: #FFFFFF;
   --purple: #513CCC;
+  --grey: #B9B9B8;
   --neutral: #B8BEC9;
 }
 
@@ -17,4 +18,34 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #F7F7FA;
+}
+
+// move to commons
+.form-control{
+  border: none;
+  box-shadow: rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem;
+  color: black;
+  font-size: 16px;
+  line-height: 38px;
+
+  &:focus{
+    box-shadow: rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem;
+  }
+}
+
+.nav-pills{
+  .nav-link{
+    margin-bottom: 10px;
+    transition: background 0.3s ease;
+
+    &.active,
+    &:hover{
+      background-color: var(--purple);
+      color: white;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
 }
