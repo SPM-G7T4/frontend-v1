@@ -2,7 +2,7 @@ import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
-import Courses from "./pages/Courses/Courses";
+import Courses from "./pages/Courses";
 import Schedule from "./pages/Schedule";
 import Messages from "./pages/Messages";
 import Badges from "./pages/Badges";

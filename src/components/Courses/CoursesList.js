@@ -2,37 +2,42 @@ import React from "react";
 
 import styles from "./Courses.module.scss";
 
-import { CoursesAll } from './CoursesAll'
-import { CoursesEnrolled } from './CoursesEnrolled'
-import { CoursesCompleted } from './CoursesCompleted'
+import { CoursesAll } from "./CoursesAll";
+import { CoursesEnrolled } from "./CoursesEnrolled";
+import { CoursesCompleted } from "./CoursesCompleted";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/FloatingLabel'
-import Tab from 'react-bootstrap/Tab'
-import Nav from 'react-bootstrap/Nav'
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Tab from "react-bootstrap/Tab";
+import Nav from "react-bootstrap/Nav";
 
-const Courses = () => {
+const CoursesList = () => {
   return (
     <>
       <div className={styles.courses}>
         <Container fluid>
           <div className={styles.search}>
-            <FloatingLabel controlId="floatingInput" label="Search" className="mb-3">
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Search"
+              className="mb-3"
+            >
               <Form.Control type="text" name="search" placeholder="Search" />
             </FloatingLabel>
           </div>
-          <div className={styles['list-title']}>
-            View Courses
-          </div>
-          <Tab.Container defaultActiveKey="#all" className={styles['nav-pills']}>
+          <div className={styles["list-title"]}>View Courses</div>
+          <Tab.Container
+            defaultActiveKey="#all"
+            className={styles["nav-pills"]}
+          >
             <Row>
               <Col lg={3}>
-                <Nav variant="pills" className='flex-column'>
+                <Nav variant="pills" className="flex-column">
                   <Nav.Item>
                     <Nav.Link eventKey="#all">All</Nav.Link>
                   </Nav.Item>
@@ -48,12 +53,14 @@ const Courses = () => {
                 <Tab.Content>
                   <Tab.Pane eventKey="#all">
                     <div className={styles.listing}>
-                      {CoursesAll.map((value,key) => {
+                      {CoursesAll.map((value, key) => {
                         return (
-                          <div key={key} className={styles['listing-item']}>
+                          <div key={key} className={styles["listing-item"]}>
                             <Link to="">
-                              <div className={styles['title']}>{value.title}</div>
-                              <div className={styles['subtitle']}>
+                              <div className={styles["title"]}>
+                                {value.title}
+                              </div>
+                              <div className={styles["subtitle"]}>
                                 <span>{value.badge}</span>
                                 <span>{value.date}</span>
                                 <span>{value.prerequisites}</span>
@@ -67,12 +74,14 @@ const Courses = () => {
                   </Tab.Pane>
                   <Tab.Pane eventKey="#enrolled">
                     <div className={styles.listing}>
-                      {CoursesEnrolled.map((value,key) => {
+                      {CoursesEnrolled.map((value, key) => {
                         return (
-                          <div key={key} className={styles['listing-item']}>
+                          <div key={key} className={styles["listing-item"]}>
                             <a href={value.url}>
-                              <div className={styles['title']}>{value.title}</div>
-                              <div className={styles['subtitle']}>
+                              <div className={styles["title"]}>
+                                {value.title}
+                              </div>
+                              <div className={styles["subtitle"]}>
                                 <span>{value.badge}</span>
                                 <span>{value.date}</span>
                                 <span>{value.prerequisites}</span>
@@ -86,12 +95,14 @@ const Courses = () => {
                   </Tab.Pane>
                   <Tab.Pane eventKey="#completed">
                     <div className={styles.listing}>
-                      {CoursesCompleted.map((value,key) => {
+                      {CoursesCompleted.map((value, key) => {
                         return (
-                          <div key={key} className={styles['listing-item']}>
+                          <div key={key} className={styles["listing-item"]}>
                             <a href={value.url}>
-                              <div className={styles['title']}>{value.title}</div>
-                              <div className={styles['subtitle']}>
+                              <div className={styles["title"]}>
+                                {value.title}
+                              </div>
+                              <div className={styles["subtitle"]}>
                                 <span>{value.badge}</span>
                                 <span>{value.date}</span>
                                 <span>{value.prerequisites}</span>
@@ -113,4 +124,4 @@ const Courses = () => {
   );
 };
 
-export default Courses;
+export default CoursesList;
