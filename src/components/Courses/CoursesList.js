@@ -6,8 +6,6 @@ import { CoursesAll } from "./CoursesAll";
 import { CoursesEnrolled } from "./CoursesEnrolled";
 import { CoursesCompleted } from "./CoursesCompleted";
 
-import { Link } from "react-router-dom";
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -15,6 +13,8 @@ import Form from "react-bootstrap/Form";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
+
+import CourseTab from "./CourseTab";
 
 const CoursesList = () => {
   return (
@@ -51,69 +51,9 @@ const CoursesList = () => {
               </Col>
               <Col lg={9}>
                 <Tab.Content>
-                  <Tab.Pane eventKey="#all">
-                    <div className={styles.listing}>
-                      {CoursesAll.map((value, key) => {
-                        return (
-                          <div key={key} className={styles["listing-item"]}>
-                            <Link to="">
-                              <div className={styles["title"]}>
-                                {value.title}
-                              </div>
-                              <div className={styles["subtitle"]}>
-                                <span>{value.badge}</span>
-                                <span>{value.date}</span>
-                                <span>{value.prerequisites}</span>
-                              </div>
-                              <div className={styles.desc}>{value.desc}</div>
-                            </Link>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="#enrolled">
-                    <div className={styles.listing}>
-                      {CoursesEnrolled.map((value, key) => {
-                        return (
-                          <div key={key} className={styles["listing-item"]}>
-                            <a href={value.url}>
-                              <div className={styles["title"]}>
-                                {value.title}
-                              </div>
-                              <div className={styles["subtitle"]}>
-                                <span>{value.badge}</span>
-                                <span>{value.date}</span>
-                                <span>{value.prerequisites}</span>
-                              </div>
-                              <div className={styles.desc}>{value.desc}</div>
-                            </a>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </Tab.Pane>
-                  <Tab.Pane eventKey="#completed">
-                    <div className={styles.listing}>
-                      {CoursesCompleted.map((value, key) => {
-                        return (
-                          <div key={key} className={styles["listing-item"]}>
-                            <a href={value.url}>
-                              <div className={styles["title"]}>
-                                {value.title}
-                              </div>
-                              <div className={styles["subtitle"]}>
-                                <span>{value.badge}</span>
-                                <span>{value.date}</span>
-                                <span>{value.prerequisites}</span>
-                              </div>
-                              <div className={styles.desc}>{value.desc}</div>
-                            </a>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </Tab.Pane>
+                  <CourseTab courseType={CoursesAll} tab="#all" />
+                  <CourseTab courseType={CoursesEnrolled} tab="#enrolled" />
+                  <CourseTab courseType={CoursesCompleted} tab="#completed" />
                 </Tab.Content>
               </Col>
             </Row>
