@@ -6,13 +6,15 @@ import { CoursesAll } from "./CoursesAll";
 import { CoursesEnrolled } from "./CoursesEnrolled";
 import { CoursesCompleted } from "./CoursesCompleted";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Tab from "react-bootstrap/Tab";
-import Nav from "react-bootstrap/Nav";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  FloatingLabel,
+  Tab,
+  Nav,
+} from "react-bootstrap";
 
 import CourseTab from "./CourseTab";
 

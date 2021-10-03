@@ -2,6 +2,7 @@ import { Route, Switch, useLocation, Redirect } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
+import Course from "./pages/Course";
 import Courses from "./pages/Courses";
 import Schedule from "./pages/Schedule";
 import Messages from "./pages/Messages";
@@ -16,6 +17,9 @@ function App() {
       <Switch location={location} key={location.pathname}>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/courses/:courseId">
+          <Course />
         </Route>
         <Route path="/courses">
           <Courses />
