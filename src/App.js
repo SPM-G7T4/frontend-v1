@@ -1,4 +1,4 @@
-import { Route, Switch, useLocation, Redirect } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
@@ -7,6 +7,7 @@ import Courses from "./pages/Courses";
 import Schedule from "./pages/Schedule";
 import Messages from "./pages/Messages";
 import Badges from "./pages/Badges";
+import Error404 from "./pages/Error404";
 
 function App() {
   const location = useLocation();
@@ -34,7 +35,7 @@ function App() {
           <Badges />
         </Route>
         <Route path="*">
-          <Redirect to="/" />
+          <Error404 />
         </Route>
       </Switch>
     </>
