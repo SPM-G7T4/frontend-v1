@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 
 import styles from "./Error.module.scss";
 
-import Button from "react-bootstrap/Button";
+import { Container, Button, Image } from "react-bootstrap";
 
 import fourOfour from "../../assets/fourOfour.svg";
 
@@ -12,13 +12,16 @@ const Error = () => {
 
   return (
     <div className={styles.content}>
-      <div className={styles.error}>
-        <h2> Page Not Found </h2>
-        <img src={fourOfour} alt="Error 404" />
-        <Button variant="primary" onClick={history.goBack}>
-          Back
-        </Button>
-      </div>
+      <Container className="text-center" fluid>
+        <div className={styles.error}>
+          <Image src={fourOfour} alt="Error 404" fluid />
+          <div className={styles.heading}>Page Not Found</div>
+          <div className={styles.text}>Sorry we can’t seem to find what you are looking for.</div>
+          <Button variant="primary" onClick={history.goBack}>
+            Back to Previous Page
+          </Button>
+        </div>
+      </Container>
     </div>
   );
 };

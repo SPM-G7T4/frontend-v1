@@ -2,16 +2,34 @@
   padding: 60px 0;
   padding-left: 250px;
   padding-right: 90px;
-  max-width: 1300px;
-}
-
-.error {
+  height: 768px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
 
-img {
-  height: 25em;
+  // @media (max-width: 767px) {
+  //   height: 500px;
+  // }
+  
+  img {
+    width: 30em;
+    margin-bottom: 1em;
+  }
+
+  .title{
+    color: var(--purple);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+
+  .heading{
+    color: var(--purple);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .text{
+    font-size: 18px;
+    margin-bottom: 1em;
+  }
 }
