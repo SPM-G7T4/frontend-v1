@@ -4,10 +4,9 @@ import styles from "./Courses.module.scss";
 
 import { Link, useRouteMatch } from "react-router-dom";
 
-import Tab from "react-bootstrap/Tab";
+import { Tab, Badge } from "react-bootstrap";
 
 const CourseTab = (props) => {
-
   const { url } = useRouteMatch();
 
   return (
@@ -19,9 +18,9 @@ const CourseTab = (props) => {
               <Link to={`${url}/${value.course_id}`}>
                 <div className={styles["title"]}>{value.title}</div>
                 <div className={styles["subtitle"]}>
-                  <span>{value.badge}</span>
-                  <span>{value.date}</span>
-                  <span>{value.prerequisites}</span>
+                  {value.classList.map((el) => {
+                    return <Badge key={el} pill bg="primary">Class {el}</Badge>;
+                  })}
                 </div>
                 <div className={styles.desc}>{value.desc}</div>
               </Link>

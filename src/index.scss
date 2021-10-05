@@ -41,6 +41,7 @@ body {
   max-width: 1300px;
 }
 
+// bootstrap styles
 .nav-pills{
   .nav-link{
     margin-bottom: 10px;
@@ -59,10 +60,25 @@ body {
 
 .btn-primary{
   background: #513CCC;
-  border-color: #513CCC;
+  border: none;
+  box-shadow: none !important;
+
+  &:disabled{
+    background: #513CCC;
+    border: none;
+    box-shadow: none !important;
+  }
 
   &:active,
   &:hover{
     background: darken(#513CCC, 5%);
   }
+}
+
+.bg-primary{
+  background-color: var(--purple) !important;
+}
+
+.text-primary{
+  color: var(--purple) !important;
 }

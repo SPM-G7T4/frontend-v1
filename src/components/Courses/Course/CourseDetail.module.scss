@@ -3,4 +3,21 @@
   padding-left: 250px;
   padding-right: 90px;
   max-width: 1300px;
+  overflow: hidden;
+
+  .title{
+    color: var(--purple);
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+
+  .img{
+    margin:-60px -250px 30px 0;
+  }
+
+  .prerequisites{
+    font-weight: bold;
+    margin-right: 0.5em;
+  }
 }
