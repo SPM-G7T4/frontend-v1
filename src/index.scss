@@ -56,3 +56,13 @@ body {
     }
   }
 }
+
+.btn-primary{
+  background: #513CCC;
+  border-color: #513CCC;
+
+  &:active,
+  &:hover{
+    background: darken(#513CCC, 5%);
+  }
+}
