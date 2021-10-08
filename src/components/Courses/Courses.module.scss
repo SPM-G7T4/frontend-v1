@@ -35,21 +35,21 @@
         margin-bottom: 5px;
       }
 
-      .subtitle{
-        span{
-          &:after{
-            content: '|';
-            margin: 0 5px;
-            color: var(--grey);
-          }
+      // .subtitle{
+      //   span{
+      //     &:after{
+      //       content: '|';
+      //       margin: 0 5px;
+      //       color: var(--grey);
+      //     }
           
-          &:last-child{
-            &:after{
-              display: none;
-            }
-          }
-        }
-      }
+      //     &:last-child{
+      //       &:after{
+      //         display: none;
+      //       }
+      //     }
+      //   }
+      // }
 
       .desc{
         color: var(--grey);
