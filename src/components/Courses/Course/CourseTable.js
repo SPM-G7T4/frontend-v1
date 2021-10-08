@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Class } from "./Class";
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
+
+import EnrollButton from "./EnrollButton";
 
 const CourseTable = () => {
 
   let now = new Date().toLocaleString();
-  const [disable, setDisable] = useState(false);
-  const [buttonText, setButtonText] = useState("Request");
 
   return (
     <Table bordered hover responsive="sm">
@@ -34,16 +34,7 @@ const CourseTable = () => {
               <td>{value.endDateTime}</td>
               <td>
                 {value.enrolmentStartDateTime < now && (
-                  <Button
-                    variant="primary"
-                    disabled={disable}
-                    onClick={() => {
-                      setDisable(true);
-                      setButtonText("Requested");
-                    }}
-                  >
-                    {buttonText}
-                  </Button>
+                  <EnrollButton />
                 )}
               </td>
             </tr>
