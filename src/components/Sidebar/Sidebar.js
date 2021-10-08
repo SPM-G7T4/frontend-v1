@@ -17,9 +17,10 @@ const Sidebar = () => {
         </div>
         <ul>
           {SidebarTabs.map((value, key) => {
+            const active = value.link === "/" ? true : false;
             return (
               <li key={key}>
-                <NavLink exact activeClassName={styles.active} to={value.link}>
+                <NavLink exact={active} activeClassName={styles.active} to={value.link}>
                   <span className={styles.title}>{value.title}</span>
                 </NavLink>
               </li>
