@@ -1,10 +1,11 @@
 import React from "react";
 
 import styles from "./Courses.module.scss";
+import { useSelector } from "react-redux";
+import { courseSelector } from "../../store/courses";
 
-import { CoursesAll } from "./CoursesAll";
-import { CoursesEnrolled } from "./CoursesEnrolled";
-import { CoursesCompleted } from "./CoursesCompleted";
+// import { CoursesEnrolled } from "./CoursesEnrolled";
+// import { CoursesCompleted } from "./CoursesCompleted";
 
 import {
   Container,
@@ -19,6 +20,10 @@ import {
 import CourseTab from "./CourseTab";
 
 const CoursesList = () => {
+
+  const { courses } = useSelector(courseSelector);
+  const allCourses = courses.data.courses;
+
   return (
     <>
       <div className={styles.courses}>
@@ -53,9 +58,9 @@ const CoursesList = () => {
               </Col>
               <Col lg={9}>
                 <Tab.Content>
-                  <CourseTab courseType={CoursesAll} tab="#all" />
-                  <CourseTab courseType={CoursesEnrolled} tab="#enrolled" />
-                  <CourseTab courseType={CoursesCompleted} tab="#completed" />
+                  <CourseTab courseType={allCourses} tab="#all" />
+                  {/* <CourseTab courseType={CoursesEnrolled} tab="#enrolled" /> */}
+                  {/* <CourseTab courseType={CoursesCompleted} tab="#completed" /> */}
                 </Tab.Content>
               </Col>
             </Row>

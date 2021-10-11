@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { courseSelector, fetchCourses } from "../store/courses";
 
 const Home = () => {
+  const dispatch = useDispatch();
+
+  const { courses } = useSelector(courseSelector);
+
+  useEffect(() => {
+    if (courses.length < 1) {
+      dispatch(fetchCourses())
+    } 
+  })
+  
   return (
     <h1
       style={{
