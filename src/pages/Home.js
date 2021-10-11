@@ -13,8 +13,6 @@ const Home = () => {
     } 
   })
   
-  console.log(courses);
-  
   return (
     <h1
       style={{

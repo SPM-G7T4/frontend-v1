@@ -16,13 +16,13 @@ const CourseTab = (props) => {
           return (
             <div key={key} className={styles["listing-item"]}>
               <Link to={`${url}/${value.course_id}`}>
-                <div className={styles["title"]}>{value.title}</div>
+                <div className={styles["title"]}>{value.course_name}</div>
                 <div className={styles["subtitle"]}>
-                  {value.classList.map((el) => {
+                  {value.classes.map((el) => {
                     return <Badge key={el} pill bg="primary">Class {el}</Badge>;
                   })}
                 </div>
-                <div className={styles.desc}>{value.desc}</div>
+                <div className={styles.desc}>{value.description}</div>
               </Link>
             </div>
           );
