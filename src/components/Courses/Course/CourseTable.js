@@ -33,7 +33,7 @@ const CourseTable = () => {
               <td>{value.startDateTime}</td>
               <td>{value.endDateTime}</td>
               <td>
-                {value.enrolmentStartDateTime < now && (
+                {value.enrolmentStartDateTime < now && value.enrolmentEndDateTime > now && (
                   <EnrollButton />
                 )}
               </td>
