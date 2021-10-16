@@ -8,6 +8,8 @@ import Schedule from "./pages/Schedule";
 import Messages from "./pages/Messages";
 import Badges from "./pages/Badges";
 import Error404 from "./pages/Error404";
+import Enrolments from "./pages/Enrolments";
+import Learners from "./pages/Learners";
 
 function App() {
   const location = useLocation();
@@ -33,6 +35,12 @@ function App() {
         </Route>
         <Route path="/badges">
           <Badges />
+        </Route>
+        <Route path="/enrolments">
+          <Enrolments />
+        </Route>
+        <Route path="/learners">
+          <Learners />
         </Route>
         <Route path="*">
           <Error404 />
