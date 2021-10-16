@@ -23,14 +23,25 @@ body {
 
 // move to commons
 .form-control{
-  border: none;
-  box-shadow: rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem;
-  color: black;
-  font-size: 16px;
-  line-height: 38px;
-
-  &:focus{
+  &.search{
+    border: none;
     box-shadow: rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem;
+    color: black;
+    font-size: 16px;
+    line-height: 38px;
+  
+    &:focus{
+      box-shadow: rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem;
+    }
+  }
+
+  &.fields{
+    border-radius: 0;
+
+    &:focus{
+      box-shadow: none !important;
+      border-color: var(--purple);
+    }
   }
 }
 
