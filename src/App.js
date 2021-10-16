@@ -10,9 +10,13 @@ import Badges from "./pages/Badges";
 import Error404 from "./pages/Error404";
 import Enrolments from "./pages/Enrolments";
 import Learners from "./pages/Learners";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const location = useLocation();
+  if (!sessionStorage.getItem("auth-token")) {
+    return <LoginPage />;
+  } 
 
   return (
     <>

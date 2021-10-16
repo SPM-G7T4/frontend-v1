@@ -1,31 +1,37 @@
-import { AiTwotoneHome, AiFillSchedule, AiFillMessage } from "react-icons/ai";
-import { IoSchoolSharp } from "react-icons/io5";
-import { FaAward } from "react-icons/fa";
-
 export const SidebarTabs = [
   {
     title: "Home",
-    icon: <AiTwotoneHome size={25} />,
     link: "/",
+    learner: true,
   },
   {
     title: "Courses",
-    icon: <IoSchoolSharp size={25} />,
     link: "/courses",
+    learner: true,
   },
   {
     title: "Schedule",
-    icon: <AiFillSchedule size={25} />,
     link: "/schedule",
+    learner: true,
   },
   {
-    title: "Messages",
-    icon: <AiFillMessage size={25} />,
-    link: "/messages",
+    title: "Enrolments",
+    link: "/enrolments",
+    learner: false,
   },
   {
-    title: "Badges",
-    icon: <FaAward size={25} />,
-    link: "/badges",
+    title: "Learners",
+    link: "/learners",
+    learner: false,
   },
+  // {
+  //   title: "Messages",
+  //   link: "/messages",
+  //    learner: true,
+  // },
+  // {
+  //   title: "Badges",
+  //   link: "/badges",
+  //   learner: true,
+  // },
 ];

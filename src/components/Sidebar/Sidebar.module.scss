@@ -8,6 +8,34 @@
     padding: 1rem;
   }
 
+  .logout{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+
+    button{
+      width: 100%;
+      border-radius: 0;
+      padding: 1em 0;
+    }
+  }
+
+  .user{
+    font-size: 18px;
+    padding: 1em;
+    width: 100%;
+    line-height: 25px;
+    text-align: center;
+    position: absolute;
+    bottom: 56px;
+
+    img{
+      margin-right: 0.5em;
+      height: 25px;
+    }
+  }
+
   ul{
     padding: 0;
     list-style: none;

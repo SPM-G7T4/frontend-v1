@@ -11,8 +11,8 @@ import {
   Container,
   Row,
   Col,
-  Form,
-  FloatingLabel,
+  // Form,
+  // FloatingLabel,
   Tab,
   Nav,
 } from "react-bootstrap";
@@ -28,7 +28,7 @@ const CoursesList = () => {
     <>
       <div className={styles.courses}>
         <Container fluid>
-          <div className={styles.search}>
+          {/* <div className={styles.search}>
             <FloatingLabel
               controlId="floatingInput"
               label="Search"
@@ -36,7 +36,7 @@ const CoursesList = () => {
             >
               <Form.Control type="text" name="search" placeholder="Search" />
             </FloatingLabel>
-          </div>
+          </div> */}
           <div className={styles["list-title"]}>View Courses</div>
           <Tab.Container
             defaultActiveKey="#all"

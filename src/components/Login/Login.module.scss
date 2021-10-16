@@ -1,0 +1,24 @@
+.login{
+  margin: 20vh auto;
+  max-width: 373px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img{
+    height: 55px;
+    margin-bottom: 10px;
+  }
+
+  .title{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .auth{
+    margin-top: 10px;
+    border: 1px solid #513ccc;
+    text-align: center;
+  }
+}
