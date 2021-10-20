@@ -14,9 +14,13 @@ import LoginPage from "./pages/LoginPage";
 
 function App() {
   const location = useLocation();
-  if (!sessionStorage.getItem("auth-token")) {
+
+  const isLoggedIn = sessionStorage.getItem("auth-token");
+  const isAdmin = isLoggedIn === "admin" ? true : false;
+
+  if (!isLoggedIn) {
     return <LoginPage />;
-  } 
+  }
 
   return (
     <>
@@ -40,12 +44,16 @@ function App() {
         <Route path="/badges">
           <Badges />
         </Route>
-        <Route path="/enrolments">
-          <Enrolments />
-        </Route>
-        <Route path="/learners">
-          <Learners />
-        </Route>
+        {isAdmin && (
+          <>
+            <Route path="/enrolments">
+              <Enrolments />
+            </Route>
+            <Route path="/learners">
+              <Learners />
+            </Route>
+          </>
+        )}
         <Route path="*">
           <Error404 />
         </Route>
