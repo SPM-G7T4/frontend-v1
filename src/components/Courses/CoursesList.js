@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./Courses.module.scss";
 import { useSelector } from "react-redux";
@@ -18,11 +18,45 @@ import {
 } from "react-bootstrap";
 
 import CourseTab from "./CourseTab";
+import axios from "axios";
 
 const CoursesList = () => {
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const [completedCourses, setCompletedCourses] = useState([]);
 
   const { courses } = useSelector(courseSelector);
   const allCourses = courses.data.courses;
+
+  const userEmail = sessionStorage.getItem("email");
+
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+
+  useEffect(() => {
+    const getEnrolledCourses = async () => {
+      try {
+        const { data } = await axios.post(process.env.REACT_APP_ENROLMENTS, {
+          learner_email: userEmail,
+        });
+        setEnrolledCourses(data.data.enrolments);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    const getCompletedCourses = async () => {
+      try {
+        const { data } = await axios.post(process.env.REACT_APP_COMPLETED, {
+          learner_email: userEmail,
+        });
+        setCompletedCourses(data.data.course_completed);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getEnrolledCourses();
+    getCompletedCourses();
+  }, [userEmail]);
 
   return (
     <>
@@ -59,8 +93,12 @@ const CoursesList = () => {
               <Col lg={9}>
                 <Tab.Content>
                   <CourseTab courseType={allCourses} tab="#all" />
-                  {/* <CourseTab courseType={CoursesEnrolled} tab="#enrolled" /> */}
-                  {/* <CourseTab courseType={CoursesCompleted} tab="#completed" /> */}
+                  {enrolledCourses.length !== 0 && (
+                    <CourseTab courseType={enrolledCourses} tab="#enrolled" />
+                  )}
+                  {completedCourses.length !== 0 && (
+                    <CourseTab courseType={completedCourses} tab="#completed" />
+                  )}
                 </Tab.Content>
               </Col>
             </Row>
