@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { EnrolmentsAll } from "./EnrolmentsAll";
+import axios from "axios";
 import { Table } from "react-bootstrap";
 
 const EnrolmentsTable = () => {
+  const [allEnrolments, setAllEnrolments] = useState([]);
+
+  const fetchAllEnrolments = async () => {
+    axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+    const { data } = await axios.get(process.env.REACT_APP_ENROLMENTS);
+    console.log("CALLING API!!")
+    setAllEnrolments(data.data.enrolments);
+  };
+
+  useEffect(() => {
+    fetchAllEnrolments();
+  }, []);
+
+  console.log(allEnrolments);
+
   return (
     <Table bordered hover responsive="sm">
       <thead>
@@ -16,10 +31,11 @@ const EnrolmentsTable = () => {
           <th>Class End Datetime</th>
           <th>Description</th>
           <th>Trainer Email</th>
+          <th>Status</th>
         </tr>
       </thead>
       <tbody>
-        {EnrolmentsAll.map((value, key) => {
+        {allEnrolments.map((value, key) => {
           return (
             <tr key={key}>
               <td>{value.learner_email}</td>
@@ -30,13 +46,13 @@ const EnrolmentsTable = () => {
               <td>{value.class_end_datetime}</td>
               <td>{value.description}</td>
               <td>{value.trainer_email}</td>
-              {/* <td>{value.approved ? "Approved" : "Pending"}</td> */}
+              <td>{value.status === "enrolled" ? "Approved" : "Pending"}</td>
             </tr>
           );
         })}
       </tbody>
-  </Table>
-  )
+    </Table>
+  );
 };
 
 export default EnrolmentsTable;
