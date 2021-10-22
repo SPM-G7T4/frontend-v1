@@ -18,7 +18,7 @@ const CourseTab = (props) => {
               <Link to={`${url}/${value.course_id}`}>
                 <div className={styles["title"]}>{`${value.course_id}: ${value.course_name}`}</div>
                 <div className={styles["subtitle"]}>
-                  {value.classes.map((el) => {
+                  {value.classes && value.classes.map((el) => {
                     return <Badge key={el} pill bg="primary">Class {el}</Badge>;
                   })}
                 </div>
