@@ -1,17 +1,21 @@
 import React from "react";
 
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { courseSelector } from "../../../store/courses";
 
 import styles from "./CourseDetail.module.scss";
 
-import { CoursesAll } from "../CoursesAll";
 import { Container, Image, Badge } from "react-bootstrap";
 import CourseTable from "./CourseTable";
 
 const CourseDetails = () => {
   const { courseId } = useParams();
 
-  const course = CoursesAll.find((p) => p.course_id === courseId);
+  const { courses } = useSelector(courseSelector);
+  const allCourses = courses.data.courses;
+
+  const course = allCourses.find((p) => p.course_id === courseId);
 
   if (!course) {
     return (
@@ -29,8 +33,8 @@ const CourseDetails = () => {
             <Image src="http://picsum.photos/1500/300" fluid />
           </div>
           {courseId}
-          <div className={styles["title"]}>{course.title}</div>
-          <div className="pb-3">{course.desc}</div>
+          <div className={styles["title"]}>{course.course_name}</div>
+          <div className="pb-3">{course.description}</div>
           {course.prerequisites.length !== 0 ? (
             <div className="pb-3 text-primary">
               <span className={styles["prerequisites"]}>Prerequisites: </span>
@@ -48,7 +52,7 @@ const CourseDetails = () => {
             </div>
           )}
           <div>
-            <CourseTable />
+            <CourseTable courseId={courseId} />
           </div>
         </Container>
       </div>
