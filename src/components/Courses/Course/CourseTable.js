@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { Class } from "./Class";
+import axios from "axios";
+
 import { Table } from "react-bootstrap";
 
 import EnrollButton from "./EnrollButton";
 
-const CourseTable = () => {
-
+const CourseTable = (props) => {
+  const [classDetails, setClassDetails] = useState([]);
   let now = new Date().toLocaleString();
+
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+  useEffect(() => {
+    const getClassDetails = async () => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_COURSES}/${props.courseId}`
+        );
+        if (data.code === 200) {
+          setClassDetails(data.data.classes);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getClassDetails();
+  }, [props.courseId]);
 
   return (
     <Table bordered hover responsive="sm">
@@ -23,17 +41,17 @@ const CourseTable = () => {
         </tr>
       </thead>
       <tbody>
-        {Class.map((value, key) => {
+        {classDetails.map((value, key) => {
           return (
             <tr key={key}>
-              <td>{value.classId}</td>
-              <td>{value.trainerName}</td>
-              <td>{value.enrolmentStartDateTime}</td>
-              <td>{value.enrolmentEndDateTime}</td>
-              <td>{value.startDateTime}</td>
-              <td>{value.endDateTime}</td>
+              <td>{value.class_id}</td>
+              <td>{value.trainer_name}</td>
+              <td>{value.enrol_start_datetime}</td>
+              <td>{value.enrol_end_datetime}</td>
+              <td>{value.start_datetime}</td>
+              <td>{value.end_datetime}</td>
               <td>
-                {value.enrolmentStartDateTime < now && value.enrolmentEndDateTime > now && (
+                {value.enrol_start_datetime < now && value.enrol_end_datetime > now && (
                   <EnrollButton />
                 )}
               </td>
