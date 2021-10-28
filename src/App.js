@@ -12,7 +12,7 @@ import Enrolments from "./pages/Enrolments";
 import Learners from "./pages/Learners";
 import LoginPage from "./pages/LoginPage";
 import Classes from "./pages/Classes";
-import Quizzes from "./pages/Quizzes";
+// import Quizzes from "./pages/Quizzes";
 import Class from "./pages/Class"
 
 function App() {
