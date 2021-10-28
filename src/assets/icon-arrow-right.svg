@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="16px" viewBox="0 0 23 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Arrows - Expertise</title>
+    <g id="Sutrix" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sutrix-Website---Service" transform="translate(-678.000000, -1044.000000)" stroke="#000000" stroke-width="1.5">
+            <g id="Group-5" transform="translate(100.000000, 626.000000)">
+                <g id="Arrows---Expertise" transform="translate(578.000000, 419.000000)">
+                    <line x1="0" y1="7" x2="22" y2="7" id="Path-16"></line>
+                    <polyline id="Path-17" points="15 0 22 7 15 14"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
