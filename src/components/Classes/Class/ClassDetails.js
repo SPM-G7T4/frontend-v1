@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useParams } from "react-router-dom";
 
 import styles from "./ClassDetails.module.scss";
 
 import { ClassDetailsAll } from "./ClassDetailsAll";
-import { Container, Accordion, Button } from "react-bootstrap";
+import { Container, Accordion } from "react-bootstrap";
 
 // import arrowRight from "../../../assets/icon-arrow-right.svg"
 
