@@ -81,7 +81,8 @@ body {
   }
 
   &:active,
-  &:hover{
+  &:hover,
+  &:focus{
     background: darken(#513CCC, 5%);
   }
 }
@@ -92,4 +93,47 @@ body {
 
 .text-primary{
   color: var(--purple) !important;
+}
+
+.accordion-button{
+  &:focus,
+  &:active{
+    box-shadow: none !important;
+  }
+  &:not(.collapsed){
+    color: var(--purple) !important;
+    background-color: #E8E2FF;
+    box-shadow: none !important;
+    &::after{
+      fill: black !important;
+    }
+  }
+}
+
+.accordion-item{
+  &.materials{
+    border-left: transparent !important;
+    border-right: transparent !important;
+  }
+  
+  &:first-of-type{
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+  }
+
+  .accordion-button{
+    font-weight: 500;
+    color: var(--purple);
+  }
+}
+
+
+.form-check-input{
+  &:checked{
+    background-color: var(--purple);
+    border-color: var(--purple);
+  }
+  &:focus{
+    box-shadow: 0 0 0 0.25rem rgb(81 60 204 / 25%);
+  }
 }
