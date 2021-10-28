@@ -11,7 +11,8 @@ import Logout from "../Login/Logout";
 import Image from "react-bootstrap/Image";
 
 const Sidebar = () => {
-  const isLearner = sessionStorage.getItem('auth-token') === 'learner' ? true : false;
+  const isAdmin = sessionStorage.getItem('auth-token') === 'admin' ? true : false;
+  const isTrainer = sessionStorage.getItem('auth-token') === 'trainer' ? true : false;
   const name = sessionStorage.getItem('name');
   return (
     <>
@@ -22,31 +23,49 @@ const Sidebar = () => {
         <ul>
           {SidebarTabs.map((value, key) => {
             const active = value.link === "/" ? true : false;
-            return (
-              isLearner ? (
-                value.learner && (
-                <li key={key}>
-                  <NavLink
-                    exact={active}
-                    activeClassName={styles.active}
-                    to={value.link}
-                  >
-                    <span className={styles.title}>{value.title}</span>
-                  </NavLink>
-                </li>
-                )
-              ) : (
-                <li key={key}>
-                  <NavLink
-                    exact={active}
-                    activeClassName={styles.active}
-                    to={value.link}
-                  >
-                    <span className={styles.title}>{value.title}</span>
-                  </NavLink>
-                </li>
+            if (isAdmin) {
+              return (
+                value.permissions.admin && (
+                  <li key={key}>
+                    <NavLink
+                      exact={active}
+                      activeClassName={styles.active}
+                      to={value.link}
+                    >
+                      <span className={styles.title}>{value.title}</span>
+                    </NavLink>
+                  </li>
+                  )
               )
-            );
+            } else if (isTrainer) {
+              return (
+                value.permissions.trainer && (
+                  <li key={key}>
+                    <NavLink
+                      exact={active}
+                      activeClassName={styles.active}
+                      to={value.link}
+                    >
+                      <span className={styles.title}>{value.title}</span>
+                    </NavLink>
+                  </li>
+                  )
+              )
+            } else {
+              return (
+                value.permissions.learner && (
+                  <li key={key}>
+                    <NavLink
+                      exact={active}
+                      activeClassName={styles.active}
+                      to={value.link}
+                    >
+                      <span className={styles.title}>{value.title}</span>
+                    </NavLink>
+                  </li>
+                  )
+              )
+            }
           })}
         </ul>
         <div className={styles.user}><img src={person} alt="avatar" />{name}</div>
