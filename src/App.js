@@ -62,9 +62,9 @@ function App() {
             <Route path="/classes">
               <Classes />
             </Route>
-            <Route path="/quizzes">
+            {/* <Route path="/quizzes">
               <Quizzes />
-            </Route>
+            </Route> */}
             <Route path="/class/:courseId/:classId">
               <Class />
             </Route>
