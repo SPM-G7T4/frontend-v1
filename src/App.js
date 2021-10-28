@@ -11,13 +11,16 @@ import Error404 from "./pages/Error404";
 import Enrolments from "./pages/Enrolments";
 import Learners from "./pages/Learners";
 import LoginPage from "./pages/LoginPage";
+import Classes from "./pages/Classes";
+import Quizzes from "./pages/Quizzes";
+import Class from "./pages/Class"
 
 function App() {
   const location = useLocation();
 
   const isLoggedIn = sessionStorage.getItem("auth-token");
   const isAdmin = isLoggedIn === "admin" ? true : false;
-
+  const isTrainer = isLoggedIn === "trainer" ? true : false;
   if (!isLoggedIn) {
     return <LoginPage />;
   }
@@ -51,6 +54,19 @@ function App() {
             </Route>
             <Route path="/learners">
               <Learners />
+            </Route>
+          </>
+        )}
+        {isTrainer && (
+          <>
+            <Route path="/classes">
+              <Classes />
+            </Route>
+            <Route path="/quizzes">
+              <Quizzes />
+            </Route>
+            <Route path="/class/:courseId/:classId">
+              <Class />
             </Route>
           </>
         )}

@@ -35,6 +35,12 @@ const Login = () => {
       password: '123',
     };
 
+    let trainerToken = {
+      name: 'Jia Le Ong',
+      email: 'jiale@smu.edu.sg',
+      password: '123',
+    };
+
     switch (emailInput) {
       case hrToken.email:
         sessionStorage.setItem('auth-token', 'admin');
@@ -47,6 +53,13 @@ const Login = () => {
         sessionStorage.setItem('auth-token', 'learner');
         sessionStorage.setItem('email', learnerToken.email);
         sessionStorage.setItem('name', learnerToken.name);
+        history.push('/');
+        break;
+
+      case trainerToken.email:
+        sessionStorage.setItem('auth-token', 'trainer');
+        sessionStorage.setItem('email', trainerToken.email);
+        sessionStorage.setItem('name', trainerToken.name);
         history.push('/');
         break;
 
@@ -97,6 +110,12 @@ const Login = () => {
               </div>
               <div>
                 <strong>HR Email:</strong> joen@smu.edu.sg
+                <br />
+                <strong>Password:</strong> 123
+                <br />
+              </div>
+              <div>
+                <strong>Trainer Email:</strong> jiale@smu.edu.sg
                 <br />
                 <strong>Password:</strong> 123
                 <br />
