@@ -39,10 +39,6 @@ const EnrollButton = (props) => {
     }
   };
 
-  console.log(props.enrol);
-
-
-
   return (
     <Button variant="primary" disabled={disable} onClick={enrolClass}>
       {buttonText}
