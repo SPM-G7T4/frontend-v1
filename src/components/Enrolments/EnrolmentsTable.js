@@ -19,8 +19,6 @@ const EnrolmentsTable = () => {
     fetchAllEnrolments();
   }, []);
 
-  console.log(allEnrolments);
-
   return (
     <Table bordered hover responsive="sm" className={styles.center}>
       <thead>
@@ -39,7 +37,6 @@ const EnrolmentsTable = () => {
       <tbody>
         {allEnrolments.map((value, key) => {
           const disable = value.status === "pending" ? false : true;
-
           return (
             <tr key={key}>
               <td>{value.learner_email}</td>
@@ -51,8 +48,15 @@ const EnrolmentsTable = () => {
               <td>{value.trainer_email}</td>
               <td>{value.status === "enrolled" ? "Approved" : "Pending"}</td>
               <td>
-                <StatusButton type="approve" status="enrolled" disable={disable} />
-                <StatusButton type="reject" status="rejected" disable={disable} />
+                <StatusButton
+                  type="approve"
+                  status="enrolled"
+                  disable={disable}
+                  learnerEmail={value.learner_email}
+                  courseId={value.course_id}
+                  classId={value.class_id}
+                />
+                {/* <StatusButton type="reject" status="rejected" disable={disable} /> */}
               </td>
             </tr>
           );
