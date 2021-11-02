@@ -12,8 +12,9 @@ import Enrolments from "./pages/Enrolments";
 import Learners from "./pages/Learners";
 import LoginPage from "./pages/LoginPage";
 import Classes from "./pages/Classes";
-// import Quizzes from "./pages/Quizzes";
+import Quizzes from "./pages/Quizzes";
 import Class from "./pages/Class"
+import Quiz from "./pages/Quiz"
 
 function App() {
   const location = useLocation();
@@ -62,11 +63,14 @@ function App() {
             <Route path="/classes">
               <Classes />
             </Route>
-            {/* <Route path="/quizzes">
+            <Route path="/quizzes">
               <Quizzes />
-            </Route> */}
-            <Route path="/class/:courseId/:classId">
+            </Route>
+            <Route path="/:courseId/:classId">
               <Class />
+            </Route>
+            <Route path="/quiz/:courseId/:classId/:sectionId">
+              <Quiz />
             </Route>
           </>
         )}
