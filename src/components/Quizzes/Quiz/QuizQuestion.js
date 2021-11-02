@@ -63,11 +63,11 @@ export default function QuizQuestion({
       <br />
       <div>
         Move Question:{" "}
-        <Button variant="outline-secondary" style={{marginRight: "0.5rem"}} onClick={moveQuestionUp} style={{marginRight: "0.5rem"}}>
+        <Button variant="outline-secondary" onClick={moveQuestionUp} style={{marginRight: "0.5rem"}}>
           <FaAngleUp />
           Up
         </Button>
-        <Button variant="outline-secondary" style={{marginRight: "0.5rem"}} onClick={moveQuestionDown}>
+        <Button variant="outline-secondary" onClick={moveQuestionDown}>
           <FaAngleDown />
           Down
         </Button>
