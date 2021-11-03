@@ -83,7 +83,7 @@ const CoursesList = () => {
                     <Nav.Link eventKey="#all">All</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="#enrolled">Enrolled</Nav.Link>
+                    <Nav.Link eventKey="#enrolled">Enrolments</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
                     <Nav.Link eventKey="#completed">Completed</Nav.Link>
@@ -94,7 +94,7 @@ const CoursesList = () => {
                 <Tab.Content>
                   <CourseTab courseType={allCourses} tab="#all" />
                   {enrolledCourses.length !== 0 && (
-                    <CourseTab courseType={enrolledCourses} tab="#enrolled" />
+                    <CourseTab courseType={enrolledCourses} status={true} tab="#enrolled" />
                   )}
                   {completedCourses.length !== 0 && (
                     <CourseTab courseType={completedCourses} tab="#completed" />

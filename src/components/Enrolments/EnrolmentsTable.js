@@ -46,17 +46,26 @@ const EnrolmentsTable = () => {
               <td>{value.class_start_datetime}</td>
               <td>{value.class_end_datetime}</td>
               <td>{value.trainer_email}</td>
-              <td>{value.status === "enrolled" ? "Approved" : "Pending"}</td>
+              <td>{value.status === "pending" ? "Pending" : (value.status === "enrolled" ? "Enrolled" : "Rejected")}</td>
               <td>
                 <StatusButton
                   type="approve"
                   status="enrolled"
                   disable={disable}
+                  classTime={value.class_start_datetime}
                   learnerEmail={value.learner_email}
                   courseId={value.course_id}
                   classId={value.class_id}
                 />
-                {/* <StatusButton type="reject" status="rejected" disable={disable} /> */}
+                <StatusButton
+                  type="reject"
+                  status="rejected"
+                  disable={disable}
+                  classTime={value.class_start_datetime}
+                  learnerEmail={value.learner_email}
+                  courseId={value.course_id}
+                  classId={value.class_id}
+                />
               </td>
             </tr>
           );

@@ -39,6 +39,7 @@ const CourseTable = (props) => {
         const { data } = await axios.post(process.env.REACT_APP_ENROLMENTS, {
           learner_email: userEmail,
         });
+        console.log(data.data.enrolments);
         setEnrolledCourses(data.data.enrolments);
       } catch(err) {
         console.log(err);
@@ -51,8 +52,10 @@ const CourseTable = (props) => {
   const enrolledCourseId = new Set();
 
   if (enrolledCourses) {
-    for( const course of enrolledCourses) {
-      enrolledCourseId.add(course.course_id)
+    for(const course of enrolledCourses) {
+      if (course.status === "enrolled") {
+        enrolledCourseId.add(course.course_id)
+      }
     }
   }
 
