@@ -17,15 +17,15 @@ export const SidebarTabs = [
       trainer: false,
     }
   },
-  {
-    title: "Schedule",
-    link: "/schedule",
-    permissions: {    
-      learner: true,
-      admin: true,
-      trainer: true,
-    }
-  },
+  // {
+  //   title: "Schedule",
+  //   link: "/schedule",
+  //   permissions: {    
+  //     learner: true,
+  //     admin: true,
+  //     trainer: true,
+  //   }
+  // },
   {
     title: "Enrolments",
     link: "/enrolments",
@@ -48,7 +48,7 @@ export const SidebarTabs = [
     title: "Classes",
     link: "/classes",
     permissions: {
-      learner: false,
+      learner: true,
       admin: false,
       trainer: true,
     }
