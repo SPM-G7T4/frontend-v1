@@ -4,8 +4,6 @@ import { useHistory } from "react-router-dom";
 import styles from "./Classes.module.scss";
 import axios from "axios";
 
-import { ClassesAll } from "./ClassesAll";
-
 import { Container, Image, Accordion, Table } from "react-bootstrap";
 
 const ClassesList = () => {
