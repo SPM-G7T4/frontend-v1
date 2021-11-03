@@ -1,0 +1,23 @@
+.quiz{
+  padding: 60px 0;
+  padding-left: 250px;
+  // padding-right: 90px;
+  max-width: 1300px;
+  overflow: hidden;
+ 
+  .title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  ol{
+    li{
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      width: 80%;
+      // border: 1px solid var(--purple);
+    }
+  }
+}

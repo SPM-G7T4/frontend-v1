@@ -52,6 +52,11 @@ body {
   max-width: 1300px;
 }
 
+.css-1pahdxg-control{
+  border-color: var(--purple) !important;
+  box-shadow: none !important;
+}
+
 // bootstrap styles
 .nav-pills{
   .nav-link{
@@ -84,6 +89,27 @@ body {
   &:hover,
   &:focus{
     background: darken(#513CCC, 5%);
+  }
+}
+
+.btn-outline-primary{
+  border-color: #513ccc;
+  color: #513ccc;
+  box-shadow: none !important;
+
+  &:hover{
+    background: #513CCC;
+  }
+  svg{
+    transform: translateY(-10%)
+  }
+}
+
+.btn-outline-danger,
+.btn-outline-secondary{
+  box-shadow: none !important;
+  svg{
+    transform: translateY(-10%)
   }
 }
 
@@ -127,7 +153,6 @@ body {
   }
 }
 
-
 .form-check-input{
   &:checked{
     background-color: var(--purple);
@@ -136,4 +161,15 @@ body {
   &:focus{
     box-shadow: 0 0 0 0.25rem rgb(81 60 204 / 25%);
   }
+}
+
+.form-control{
+  &:focus{
+    border-color: var(--purple);
+    box-shadow: none !important;
+  }
+}
+
+.form-label > input{
+  margin-right: 0.5rem;
 }
