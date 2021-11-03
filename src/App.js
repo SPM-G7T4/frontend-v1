@@ -13,8 +13,8 @@ import Learners from "./pages/Learners";
 import LoginPage from "./pages/LoginPage";
 import Classes from "./pages/Classes";
 import Quizzes from "./pages/Quizzes";
-import Class from "./pages/Class"
-import Quiz from "./pages/Quiz"
+import Class from "./pages/Class";
+import Quiz from "./pages/Quiz";
 
 function App() {
   const location = useLocation();
@@ -48,6 +48,12 @@ function App() {
         <Route path="/badges">
           <Badges />
         </Route>
+        <Route path="/classes">
+          <Classes />
+        </Route>
+        <Route path="/class/:courseId/:classId">
+          <Class />
+        </Route>
         {isAdmin && (
           <>
             <Route path="/enrolments">
@@ -60,12 +66,6 @@ function App() {
         )}
         {isTrainer && (
           <>
-            <Route path="/classes">
-              <Classes />
-            </Route>
-            <Route path="/classes/:courseId/:classId">
-              <Class />
-            </Route>
             <Route path="/quizzes">
               <Quizzes />
             </Route>

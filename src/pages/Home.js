@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { courseSelector, fetchCourses } from "../store/courses";
 
 import { Container } from 'react-bootstrap';
+import Webinar from "../assets/Webinar.gif"
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Home = () => {
       <div style={{"padding": "60px 0", "paddingLeft": "250px", "paddingRight": "90px", "maxWidth": "1300px"}}>
         <Container fluid>
           <div style={{"fontSize": "30px", "fontWeight": "bold", "margin": "2rem 0"}}>Welcome, {name}</div>
+          <img src={Webinar} alt="Main" />
         </Container>
       </div>
     </>

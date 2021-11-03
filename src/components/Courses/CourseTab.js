@@ -16,7 +16,6 @@ const CourseTab = (props) => {
           let status = "warning";
           let statusText = "Pending";
           if (props.status) {
-            console.log(value);
             if (value.status === "enrolled") {
               status = "success";
               statusText = "Enrolled";
@@ -42,11 +41,21 @@ const CourseTab = (props) => {
                   {value.classes &&
                     value.classes.map((el) => {
                       return (
-                        <Badge key={el} pill bg="primary">
+                        <Badge
+                          key={el}
+                          pill
+                          bg="primary"
+                          className={styles.space}
+                        >
                           Class {el}
                         </Badge>
                       );
                     })}
+                  {value.class_id && (
+                    <Badge pill bg="primary" className={styles.space}>
+                      Class {value.class_id}
+                    </Badge>
+                  )}
                 </div>
                 <div className={styles.desc}>{value.description}</div>
               </Link>
