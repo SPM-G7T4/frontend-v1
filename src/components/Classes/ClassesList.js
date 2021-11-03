@@ -10,8 +10,9 @@ import { Container, Image, Accordion, Table } from "react-bootstrap";
 const ClassesList = () => {
   const history = useHistory();
   const handleRowClick = (row) => {
-    history.push(`/class/${row.course_id}/${row.class_id}`);
+    history.push(`/classes/${row.course_id}/${row.class_id}`);
   }
+
   return (
     <>
       <div className={styles.classes}>

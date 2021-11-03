@@ -63,12 +63,15 @@ function App() {
             <Route path="/classes">
               <Classes />
             </Route>
+            <Route path="/classes/:courseId/:classId">
+              <Class />
+            </Route>
             <Route path="/quizzes">
               <Quizzes />
             </Route>
-            <Route path="/:courseId/:classId">
+            {/* <Route path="/class/:courseId/:classId">
               <Class />
-            </Route>
+            </Route> */}
             <Route path="/quiz/:courseId/:classId/:sectionId">
               <Quiz />
             </Route>
