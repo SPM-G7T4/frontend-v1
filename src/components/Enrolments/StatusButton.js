@@ -19,9 +19,9 @@ const StatusButton = (props) => {
         learner_email: props.learnerEmail,
         course_id: props.courseId,
         class_id: props.classId,
-        class_start_datetime: "2021-01-07 00:00:00",
+        class_start_datetime: props.classTime,
         approver_email: userEmail,
-        status: "enrolled"
+        status: props.status,
       });
       
       if (data.code === 200) {

@@ -18,6 +18,9 @@ const EnrollButton = (props) => {
     } else if (props.enrol) {
       setButtonText("Enrolled");
       setDisable(true);
+    } else {
+      setButtonText("Rejected");
+      setDisable(true);
     }
   }, [props.expire, props.enrol]);
 
