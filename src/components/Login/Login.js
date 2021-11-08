@@ -76,7 +76,7 @@ const Login = () => {
             <div className={styles.img}>
               <Image src={logoHead} fluid />
             </div>
-            <div className={styles.title}>Log in to All in One</div>
+            <div className={styles.title}>Log in to One-Stop LMS</div>
           </div>
           <Form autoComplete="off" onSubmit={handleLoginSubmit}>
             <Form.Group className="mb-3" controlId="formGroupEmail">

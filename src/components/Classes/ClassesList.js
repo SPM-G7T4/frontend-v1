@@ -13,41 +13,39 @@ const ClassesList = () => {
     history.push(`/class/${row.course_id}/${row.class_id}`);
   };
 
+  const token = sessionStorage.getItem("auth-token");
   const userEmail = sessionStorage.getItem("email");
+
 
   axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
-    const getEnrolledCourses = async () => {
-      try {
-        const { data } = await axios.post(process.env.REACT_APP_ENROLMENTS, {
-          learner_email: userEmail,
-        });
-        setEnrolledClasses(data.data.enrolments.filter((enrolment) => enrolment.status === "enrolled"));
-      } catch (err) {
-        console.log(err);
+    if (token === "learner") {
+      const getEnrolledCourses = async () => {
+        try {
+          const { data } = await axios.post(process.env.REACT_APP_ENROLMENTS, {
+            learner_email: userEmail,
+          });
+          setEnrolledClasses(data.data.enrolments.filter((enrolment) => enrolment.status === "enrolled"));
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getEnrolledCourses();
+    } else {
+      const getTrainerCourses = async () => {
+        try {
+          const { data } = await axios.post(process.env.REACT_APP_TRAINER, {
+            trainer_email: userEmail,
+          });
+          setEnrolledClasses(data.data.classes)
+        } catch (err) {
+          console.log(err);
+        }
       }
-    };
-    getEnrolledCourses();
-  }, [userEmail]);
-
-  console.log(enrolledClasses);
-
-  if (enrolledClasses.length === 0) {
-    return (
-      <h3
-        style={{
-          width: "100vw",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        No classes enrolled
-      </h3>
-    );
-  }
+      getTrainerCourses();
+    }
+  }, [userEmail, token]);
 
   return (
     <>
@@ -60,6 +58,8 @@ const ClassesList = () => {
           <div className={styles.accordion}>
             <Accordion>
               {enrolledClasses.map((value, key) => {
+                const start = token === "learner" ? value.class_start_datetime : value.start_datetime
+                const end = token === "learner" ? value.class_end_datetime : value.end_datetime
                 return (
                   <Accordion.Item eventKey={key} key={key}>
                     <Accordion.Header>
@@ -82,8 +82,8 @@ const ClassesList = () => {
                           >
                             <td>{value.class_id}</td>
                             <td>{value.class_size}</td>
-                            <td>{value.class_start_datetime}</td>
-                            <td>{value.class_end_datetime}</td>
+                            <td>{start}</td>
+                            <td>{end}</td>
                           </tr>
                         </tbody>
                       </Table>

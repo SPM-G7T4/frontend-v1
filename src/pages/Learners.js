@@ -16,6 +16,7 @@ const Learners = () => {
 
   const getAllLearners = () => {
     axios.get(`${process.env.REACT_APP_LEARNERS}`)
+
     .then((res) => {
       const allLearners = res.data;
       getLearners(allLearners);
