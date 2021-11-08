@@ -9,14 +9,13 @@ import { Container, Table, Image } from 'react-bootstrap';
 const Learners = () => {
   const [ learners, getLearners ] = useState([]);
 
-  const url = 'http://localhost:5000/learners';
-
+  axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
   useEffect(() => {
     getAllLearners();
   }, []);
 
   const getAllLearners = () => {
-    axios.get(`${url}`)
+    axios.get(`${process.env.REACT_APP_LEARNERS}`)
     .then((res) => {
       const allLearners = res.data;
       getLearners(allLearners);
