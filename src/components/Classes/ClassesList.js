@@ -47,6 +47,8 @@ const ClassesList = () => {
     }
   }, [userEmail, token]);
 
+  console.log(enrolledClasses);
+
   return (
     <>
       <div className={styles.classes}>
@@ -60,10 +62,11 @@ const ClassesList = () => {
               {enrolledClasses.map((value, key) => {
                 const start = token === "learner" ? value.class_start_datetime : value.start_datetime
                 const end = token === "learner" ? value.class_end_datetime : value.end_datetime
+                const courseName = value.course_id === "REP1101" ? "Printer Concepts and Terminology" : "Printer Operations"
                 return (
                   <Accordion.Item eventKey={key} key={key}>
                     <Accordion.Header>
-                      {value.course_id}: {value.course_name}
+                      {value.course_id}: {courseName}
                     </Accordion.Header>
                     <Accordion.Body>
                       <Table bordered hover responsive="sm">
